@@ -1,0 +1,36 @@
+[
+    {
+        "title": "Für Entwickler",
+        "links": [
+            {
+                "title": "Visual Studio Code",
+                "description": "VSCode ist eine beliebte IDE für die Softwareentwicklung. Mit einer großen Community und vielen Plugins ist VSCode eine gute Wahl zum Programmieren.",
+                "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/512px-Visual_Studio_Code_1.35_icon.svg.png?20210804221519",
+                "url": "https://code.visualstudio.com"
+            },
+            {
+                "title": "Git",
+                "description": "Egal welche Programmiersprache oder Software man nutzt, Git ist ein nützliches Werkzeug für alle zur Versionierung all deiner Programme.",
+                "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Git_icon.svg/2048px-Git_icon.svg.png",
+                "url": "https://git-scm.com"
+            },
+            {
+                "title": "Node.js",
+                "description": "JavaScript ist eine weit verbreitete Programmiersprache, die für lange Zeit nur in Browsern verfügbar war. Mit Node.js kannst du JavaScript auch in der eigenen Konsole ausführen.",
+                "icon": "https://cdn-icons-png.flaticon.com/512/919/919825.png",
+                "url": "https://nodejs.org/en"
+            }
+        ]
+    },
+    {
+        "title": "Studium (Oft Reinschauen)",
+        "links": [
+            {
+                "title": "Roundcube",
+                "description": "Roundcube ist ein Online Mailing Portal das von der HHU verwendet wird. Check hier deine Emails mindestens 1 - 2 mal pro Tag.",
+                "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Roundcube_logo_icon.svg/1200px-Roundcube_logo_icon.svg.png",
+                "url": "https://roundcube.hhu.de"
+            }
+        ]
+    }
+]

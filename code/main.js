@@ -1,5 +1,6 @@
 //   == Import Dependencies ==   //
-const { Client, GatewayIntentBits } = require('discord.js');
+const { Client, GatewayIntentBits, ButtonBuilder, ButtonStyle, ActionRowBuilder } = require('discord.js');
+const utils = require('./ahriutils.js');
 
 
 
@@ -30,7 +31,34 @@ const Ahri = new Client({
 
 //   == Ahri Is Ready Event ==   //
 Ahri.on('ready', () => {
+    console.clear();
     console.log('   == Ahri Has Awakened ==');
+});
+
+
+
+
+
+//   == Temporary: Button ==   //
+const BTN = new ButtonBuilder()
+    .setCustomId('testbtn')
+    .setLabel("Free Ahri Pics")
+    .setStyle(ButtonStyle.Success)
+;
+
+
+
+
+
+//   == Ahri Receives A Message ==   //
+Ahri.on('messageCreate', msg => {
+    // Prevent Bot Feedback Loop
+    if (msg.author.bot) return;
+
+    // Tempory: Only Admin Usable
+    if ( utils.ofRole(msg, 'Admin') ) {
+        if (msg.content == '!links') utils.sendAllLinks(msg);
+    };
 });
 
 
