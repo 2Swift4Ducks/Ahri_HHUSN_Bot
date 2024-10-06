@@ -1,6 +1,6 @@
 //   == Import Dependencies ==   //
 const { EmbedBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder } = require('discord.js');
-const fs = require('fs')
+const fs = require('fs');
 
 
 
@@ -122,8 +122,38 @@ function sendAllLinks(_msg) {
 
 
 
+//   == Clear Discord Chat ==   //
+async function clearChat(_msg) {
+    // Parse Clear Limit
+    let count = Number(_msg.content.split(' ')[1]);
+
+    // If Clear Limit Is 0 => Send Annoyed Message
+    if (count == 0) {
+        _msg.channel.send('What the heck is the point of that 🤨');
+        return;
+    };
+    
+    // If Clear Limit Is Below 0 => Send Even More Annoyed Message
+    if (count < 0) {
+        _msg.channel.send(`Alright what the heck you want from me, add ${-count} messages? 😑`);
+        return;
+    };
+
+    // Check If Count... Exists || Is Greater Than Limit || Is a Number
+    if (!count || count > 64 || typeof(count) != 'number') count = 64;
+
+    // Clear Messages
+    const MESSAGES = await _msg.channel.messages.fetch({ limit: count });
+    await _msg.channel.bulkDelete(MESSAGES, true);
+};
+
+
+
+
+
 //   == Export 'ahriutils' Module ==   //
 module.exports = {
+    clearChat,
     ofRole,
     sendAllLinks,
 };

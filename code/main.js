@@ -1,5 +1,5 @@
 //   == Import Dependencies ==   //
-const { Client, GatewayIntentBits, ButtonBuilder, ButtonStyle, ActionRowBuilder } = require('discord.js');
+const { Client, GatewayIntentBits } = require('discord.js');
 const utils = require('./ahriutils.js');
 
 
@@ -39,25 +39,20 @@ Ahri.on('ready', () => {
 
 
 
-//   == Temporary: Button ==   //
-const BTN = new ButtonBuilder()
-    .setCustomId('testbtn')
-    .setLabel("Free Ahri Pics")
-    .setStyle(ButtonStyle.Success)
-;
-
-
-
-
-
 //   == Ahri Receives A Message ==   //
 Ahri.on('messageCreate', msg => {
     // Prevent Bot Feedback Loop
     if (msg.author.bot) return;
 
-    // Tempory: Only Admin Usable
+    // Isolate Command Type
+    const COMMAND = msg.content.split(' ');
+
+    // Commands Accessable To '@everyone'
+
+    // Commands Accessable To 'Admin'
     if ( utils.ofRole(msg, 'Admin') ) {
-        if (msg.content == '!links') utils.sendAllLinks(msg);
+        if (COMMAND[0] == '!links') utils.sendAllLinks(msg);
+        if (COMMAND[0] == '!clear') utils.clearChat(msg);
     };
 });
 
